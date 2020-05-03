@@ -212,8 +212,8 @@ func XGEnsembleFromReader(reader *bufio.Reader, loadTransformation bool) (*Ensem
 	if loadTransformation {
 		if header.NameObj == "binary:logistic" {
 			transform = &transformation.TransformLogistic{}
-		} else if header.NameObj == "multi:softprob" {
-			transform = &transformation.TransformSoftprob{}
+		} else if header.NameObj == "multi:softmax" {
+			transform = &transformation.TransformSoftmax{}
 		} else {
 			return nil, fmt.Errorf("unknown transformation function '%s'", header.NameObj)
 		}
